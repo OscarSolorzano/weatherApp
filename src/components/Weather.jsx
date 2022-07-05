@@ -62,7 +62,7 @@ const Weather = () => {
                 </p>
             </div>
 
-            <button className='button-80' onClick={changeUnits}>{tSymbol}</button>
+            <button className='button-80' onClick={changeUnits}>{isCelsius ?' °F'  :' °C' }</button>
         </div>
     );
 };
