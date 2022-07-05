@@ -8,12 +8,18 @@ function App() {
 
   const {
     loading: loading,
-} = useFetchWeather();
+  } = useFetchWeather();
 
-console.log(loading)
   return (
-    <div className='flex'>
-      {loading? <Weather/> : <ReactBootStrap.Spinner animation='border' />}
+    <div>
+      {loading ?
+        <div className='flex'>
+          <ReactBootStrap.Spinner 
+          animation='border'
+          style={{ width: "10rem", height: "10rem" }} />
+        </div>
+         :
+        <Weather />}
     </div>
   )
 }

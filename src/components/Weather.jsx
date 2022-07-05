@@ -4,7 +4,6 @@ import useFetchWeather from '../hooks/useFetchWeather';
 const Weather = () => {
 
     const {
-        loading: loading,
         city: city,
         icon: icon,
         country: country,
@@ -24,7 +23,6 @@ const Weather = () => {
 
     let tSymbol = isCelsius ? ' °C' : ' °F';
     let speedUnits = isCelsius ? ' m/s' : ' mph';
-
 
     const linearGradient = 'linear-gradient(rgba(0, 0, 0, 0.20),rgba(0, 0, 0, 0.20))'
 
