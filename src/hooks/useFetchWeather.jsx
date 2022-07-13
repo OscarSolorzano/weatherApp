@@ -19,6 +19,14 @@ const useFetchWeather = () => {
         navigator.geolocation.getCurrentPosition(succes);
     }, [isCelsius])
 
+    const fetchWeatherByCity = (city) =>{
+        setLoading(true)
+        axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=57fce174ec8306210d0005f4f0bcc2a3&units=${isCelsius ? 'metric' : 'imperial'}`)
+        .then(res => setWeather(res.data))
+        .finally(setLoading(false))
+
+    }
+
     const changeUnits = () => {
         setIsCelsius(!isCelsius)
     };
@@ -55,7 +63,8 @@ const useFetchWeather = () => {
         humidity,
         wind,
         pressure,
-        background
+        background,
+        fetchWeatherByCity
     };
 };
 

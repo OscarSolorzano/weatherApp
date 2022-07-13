@@ -1,7 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useState } from 'react';
 import useFetchWeather from '../hooks/useFetchWeather';
+import Date from './Date';
 
 const Weather = () => {
+
+    const [citySearched , setCitySearched] = useState(null)
 
     const {
         city: city,
@@ -17,7 +20,8 @@ const Weather = () => {
         humidity: humidity,
         wind: wind,
         pressure: pressure,
-        background: background
+        background: background,
+        fetchWeatherByCity: fetchWeatherByCity
     } = useFetchWeather();
 
 
@@ -30,7 +34,24 @@ const Weather = () => {
 
     return (
         <div className='weather-app' style={{ backgroundImage: `${linearGradient},url(${background})` }}>
+            <div className='search-box'>
+                <input
+                type={'text'}
+                className='search-bar'
+                placeholder='shearch city by name'
+                value={citySearched}
+                onChange={e => setCitySearched(e.target.value)}
+                onKeyPress={e => {
+                    if(e.key === 'Enter'){
+                        fetchWeatherByCity(citySearched)
+                        setCitySearched('')
+                    }
+                }}
+                 >
+                </input>
+            </div>
             <h1><span>{city}, </span>{country}</h1>
+            <Date d={new window.Date()}/>
             <div className='flex-row cntnr'>
                 <div className='flex-column'>
                     <img src={`http://openweathermap.org/img/wn/${icon}@2x.png`} />

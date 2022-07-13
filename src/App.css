@@ -8,16 +8,6 @@ p{
     font-size: 1.2rem;
     margin: 0.5rem;
 }
-.weather-app {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: whitesmoke;
-    background-size: cover;
-    background-position: center center;
-}
 
 .flex{
     height: 100vh;
@@ -26,9 +16,6 @@ p{
     align-items: center;
 }
 
-.weather-app span {
-    font-size: 3rem;
-}
 .flex-row{
     display: flex;
     flex-flow: row;
@@ -41,6 +28,49 @@ p{
     flex-flow: column;
     align-items: center;
     justify-content: center;
+}
+
+.weather-app {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: whitesmoke;
+    background-size: cover;
+    background-position: center center;
+}
+
+
+.search-box{
+    width: 24rem;
+    margin-top: 2rem;
+}
+
+.search-bar{
+    display: block;
+    width: 100%;
+    padding: 0.5rem;
+    appearance: none;
+    background: none;
+    border:none;
+    outline: none;
+    background-color: rgba(250,250,250, 0.5) ;
+    border-radius: 1rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 0.25rem rgba(0, 0, 0, 0.2);
+    font-size: 1.5rem;
+    color: gray ;
+    transition: 0.5s ease;
+}
+
+.search-bar:focus{
+    background-color:rgba(250,250,250, 0.75) ;
+}
+
+
+.weather-app span {
+    font-size: 3rem;
 }
 
 .feels-lk span{
