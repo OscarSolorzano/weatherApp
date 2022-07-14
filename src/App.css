@@ -32,6 +32,7 @@ p{
 
 .weather-app {
     height: 100vh;
+    min-height: 840px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -89,7 +90,7 @@ p{
 
 .cntnr{
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
-    padding: 2rem;
+    padding: 1rem;
     border-radius: 0.5rem;
     width: 24rem;
     margin: 0.25rem;
