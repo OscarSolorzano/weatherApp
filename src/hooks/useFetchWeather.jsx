@@ -7,15 +7,15 @@ const useFetchWeather = () => {
     const [weather, setWeather] = useState({});
     const [isCelsius, setIsCelsius] = useState(true);
     const [loading, setLoading] = useState(true);
-    const [lastCity, setLasCity] = useState('');
+    const [lastCity , setLasCity] = useState('');
 
     useEffect(() => {
         const succes = pos => {
 
-            if (lastCity !== '') {
+            if(lastCity !== ''){
                 fetchWeatherByCity(lastCity)
             }
-            else {
+            else{
                 const lat = pos.coords.latitude;
                 const lon = pos.coords.longitude;
                 axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=57fce174ec8306210d0005f4f0bcc2a3&units=${isCelsius ? 'metric' : 'imperial'}`)
@@ -27,13 +27,13 @@ const useFetchWeather = () => {
         navigator.geolocation.getCurrentPosition(succes);
     }, [isCelsius])
 
-    const fetchWeatherByCity = (city) => {
+    const fetchWeatherByCity = (city) =>{
         setLoading(true)
         axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=57fce174ec8306210d0005f4f0bcc2a3&units=${isCelsius ? 'metric' : 'imperial'}`)
-            .then(res => setWeather(res.data))
-            .finally(
-                setLoading(false),
-                setLasCity(city)
+        .then(res => setWeather(res.data))
+        .finally(
+            setLoading(false),
+            setLasCity(city)
             )
 
     }
